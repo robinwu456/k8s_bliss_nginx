@@ -46,7 +46,7 @@ spec:
             steps {
                 container('k1') {
                     sh 'mkdir -p ~/.kube && cp ${KUBECONFIG} ~/.kube/config'
-                    sh "sed -i.bak 's#quay.io/robinwu456/bliss_nginx#${IMAGE_TAG}#' deploy/nginx/deploy/nginx.yaml"
+                    sh "sed -i.bak 's#quay.io/robinwu456/bliss_nginx#${IMAGE_TAG}#' deploy/nginx.yaml"
                     sh 'kubectl apply -f deploy/service_nginx.yaml -n bliss-prod'
                     sh 'kubectl apply -f deploy/nginx.yaml -n bliss-prod'
                 }
